@@ -1,0 +1,19 @@
+{
+  "name": "detailed-software-prd",
+  "version": "2.0.0",
+  "language": "zh-CN",
+  "entry": "SKILL.md",
+  "capabilities": [
+    "full_prd",
+    "module_prd",
+    "page_spec",
+    "prd_review",
+    "change_impact",
+    "mermaid",
+    "ascii_wireframe",
+    "permissions",
+    "state_machine",
+    "acceptance_criteria",
+    "consistency_check"
+  ]
+}
