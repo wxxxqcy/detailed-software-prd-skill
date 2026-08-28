@@ -1,6 +1,6 @@
 {
   "name": "detailed-software-prd",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "language": "zh-CN",
   "entry": "SKILL.md",
   "capabilities": [
@@ -14,6 +14,8 @@
     "permissions",
     "state_machine",
     "acceptance_criteria",
-    "consistency_check"
-  ]
+    "consistency_check",
+    "reverse_prd_lite"
+  ],
+  "notes": "MODE-F Lite 专项版本：面向已开发系统的轻量反向 PRD，冻结 MODE-A~E 的大规模重构。"
 }
