@@ -1,0 +1,22 @@
+{
+  "name": "detailed-software-prd",
+  "version": "2.1.0",
+  "language": "zh-CN",
+  "entry": "SKILL.md",
+  "capabilities": [
+    "interactive_requirement_intake",
+    "full_prd",
+    "module_prd",
+    "page_spec",
+    "prd_review",
+    "change_impact",
+    "mermaid",
+    "ascii_wireframe",
+    "permissions",
+    "state_machine",
+    "acceptance_criteria",
+    "consistency_check",
+    "reverse_prd_lite"
+  ],
+  "notes": "V2.1.0：新增 Interactive Requirement Intake 交互式需求澄清，作为 MODE-A~F 的跨模式能力；MODE-F 保持先取证后提问。"
+}
