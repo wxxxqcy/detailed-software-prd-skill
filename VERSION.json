@@ -1,9 +1,10 @@
 {
   "name": "detailed-software-prd",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "language": "zh-CN",
   "entry": "SKILL.md",
   "capabilities": [
+    "interactive_requirement_intake",
     "full_prd",
     "module_prd",
     "page_spec",
@@ -17,5 +18,5 @@
     "consistency_check",
     "reverse_prd_lite"
   ],
-  "notes": "MODE-F Lite 专项版本：面向已开发系统的轻量反向 PRD，冻结 MODE-A~E 的大规模重构。"
+  "notes": "V2.1.0：新增 Interactive Requirement Intake 交互式需求澄清，作为 MODE-A~F 的跨模式能力；MODE-F 保持先取证后提问。"
 }

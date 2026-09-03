@@ -1,4 +1,4 @@
-# Detailed Software PRD Skill V2.0.1
+# Detailed Software PRD Skill V2.1.0
 
 用于生成、审查和维护详细软件需求文档（PRD / SRS）的 Skill。
 
@@ -13,6 +13,7 @@ V2 不再只是“PRD 生成器”，而是定位为：
 - 单页面需求生成
 - PRD Review / 缺陷审查
 - 需求变更影响分析
+- Interactive Requirement Intake：交互式需求澄清 / 需求访谈
 - MODE-F Lite：已开发系统反向 PRD
 - 需求缺口发现
 - Mermaid 功能架构 / 信息架构 / Sitemap / 流程 / 状态机 / ER 图
@@ -32,6 +33,7 @@ detailed-software-prd-v2/
 ├── SKILL.md
 ├── README.md
 ├── references/
+│   ├── interactive-requirement-intake.md
 │   ├── prd-template.md
 │   ├── requirement-analysis.md
 │   ├── page-specification.md
@@ -55,7 +57,8 @@ detailed-software-prd-v2/
     ├── basic-prd.md
     ├── complex-workflow.md
     ├── regression-checklist.md
-    └── mode-f-lite.md
+    ├── mode-f-lite.md
+    └── interactive-intake.md
 ```
 
 ## 推荐调用方式
@@ -99,6 +102,73 @@ Review 下面这份 PRD，找出遗漏、冲突、不可开发和不可测试的
 
 现有合同系统增加“续签”功能，请分析受影响的功能、页面、流程、状态、权限、数据和验收标准。
 ```
+
+## Interactive Requirement Intake：交互式需求澄清
+
+V2.1.0 新增跨模式交互式需求访谈能力。
+
+它不是 MODE-G，而是可以和 MODE-A ~ MODE-F 组合使用。
+
+### 标准调用
+
+```text
+@detailed-software-prd
+
+开启 Interactive Intake。
+我要做一个供应商管理系统。
+先不要生成 PRD，先把必须确认的信息跟我问清楚。
+达到生成门槛后再执行 MODE-A。
+```
+
+Skill 会：
+
+```text
+读取已有需求
+→ 提取已确认事实
+→ 找出真正缺口
+→ 每轮询问 3～5 个问题
+→ 接收简写答案
+→ 更新需求事实
+→ 达到生成门槛
+→ 再进入目标 MODE
+```
+
+支持直接回答：
+
+```text
+1C
+2B，48小时
+3 待确认
+4 就按你的建议
+```
+
+### 快速澄清
+
+```text
+@detailed-software-prd
+
+Interactive Intake / 快速。
+只问会阻塞核心流程的问题。
+信息足够后直接生成 MODE-A 第一版。
+```
+
+### MODE-F + Interactive Intake
+
+```text
+@detailed-software-prd
+
+MODE-F Lite + Interactive Intake。
+
+先读取当前系统。
+代码能确认的不要问我。
+只把会阻塞流程、测试或交付的问题拿来确认。
+```
+
+核心原则：
+
+> 先取证，后提问。
+
+> AI 建议不是正式需求，只有需求人员明确接受后才能转为已确认需求。
 
 ## GitHub 部署
 
@@ -216,8 +286,16 @@ MODE-F Lite / STEP-6
 执行 reverse-quality-lite.md 最终检查。
 ```
 
-## V2.0.1 变更原则
+## V2.1.0 变更原则
 
-V2.0.1 是 MODE-F Lite 专项增强版本。
+V2.1.0 的核心新增能力是 **Interactive Requirement Intake / 交互式需求澄清**。
 
-MODE-A ~ MODE-E 的现有结构保持不变；此前测试中发现的通用优化项先进入后续版本 backlog，不在本版本进行大规模重构。
+本版本重点：
+- 不把交互问答做成新的 MODE-G，而是作为 MODE-A ~ MODE-F 的跨模式前置能力。
+- 默认先提取已有信息，再提问，避免重复问需求人员。
+- 每轮 3～5 个高价值问题，支持简写回答与“待确认 / 跳过 / 请给建议”。
+- 建立需求事实状态：已确认 / 部分确认 / 待确认 / 已延期 / 存在冲突。
+- MODE-F 与 Intake 联动时坚持“先取证、后提问”。
+- 行业常见检查项只用于发现问题，不再作为默认需求来源。
+
+MODE-A ~ MODE-F 的主要工作模式保持兼容，不进行大规模重构。
